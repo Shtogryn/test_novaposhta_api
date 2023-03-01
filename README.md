@@ -36,6 +36,8 @@ Or in case you have not installed **TOX** use **pip: -r requirements.txt**
 **Run all cases**
 
 "pytest -v -s"
+      or 
+ "tox -e np"     
 ### Command samples for Address model
 
 
