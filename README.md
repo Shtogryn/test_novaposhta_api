@@ -14,7 +14,7 @@ Create **'.env'** file and write
 
 Install packages run **'tox.ini'** file with command **'tox'** 
 
-Or in case you have not installed **TOX** use **pip: -r requirements.txt**
+Or in case you have not installed **TOX** use **pip -r requirements.txt**
 
 
 # Implementation of method support for 'Nova Poshta' API models
@@ -33,7 +33,7 @@ Or in case you have not installed **TOX** use **pip: -r requirements.txt**
 
 # How to use it
 
-**Run all cases**
+**Run all test cases**
 
 "pytest -v -s"
       or 
