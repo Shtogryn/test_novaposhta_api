@@ -3,16 +3,7 @@ import pytest
 from utils.counterparty import Counterparty
 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 @pytest.mark.counterparty
-=======
->>>>>>> d0908a0 (add test_ save_counter_party)
-=======
->>>>>>> d0908a0 (add test_ save_counter_party)
-=======
->>>>>>> d0908a0 (add test_ save_counter_party)
 class TestCounterparty:
     @pytest.mark.counterparty
     @pytest.mark.positive
