@@ -21,8 +21,7 @@ class Address:
             "system": "DevCentre"
         }
 
-    @classmethod
-    def search_settlements(cls, city_name, limit, page):
+    def search_settlements(self, city_name, limit, page):
         properties = {
             "CityName": city_name,
             "Limit": limit,
@@ -32,8 +31,7 @@ class Address:
         response = HttpMethods.post(URL, request)
         return response
 
-    @classmethod
-    def search_settlement_streets(cls, street_name, settlement_ref, limit):
+    def search_settlement_streets(self, street_name, settlement_ref, limit):
         properties = {
             "StreetName": street_name,
             "SettlementRef": settlement_ref,
@@ -43,8 +41,7 @@ class Address:
         response = HttpMethods.post(URL, request)
         return response
 
-    @classmethod
-    def get_street(cls, city_ref, find_by_string, limit, page) -> dict:
+    def get_street(self, city_ref, find_by_string, limit, page) -> dict:
         properties = {
             'CityRef': city_ref,
             'FindByString': find_by_string,
@@ -55,8 +52,7 @@ class Address:
         response = HttpMethods.put(URL, request)
         return response
 
-    @classmethod
-    def get_cities(cls, ref, find_by_string, limit):
+    def get_cities(self, ref, find_by_string, limit):
         properties = {
             'Ref': ref,
             'FindByString': find_by_string,
@@ -66,8 +62,7 @@ class Address:
         response = HttpMethods.put(URL, request)
         return response
 
-    @classmethod
-    def save_counterparty_address(cls, counterparty_ref, street_ref, building_number, flat, note="Комментарий"):
+    def save_counterparty_address(self, counterparty_ref, street_ref, building_number, flat, note="Комментарий"):
         properties = {
             'CounterpartyRef': counterparty_ref,
             'StreetRef': street_ref,
@@ -80,12 +75,11 @@ class Address:
         response = HttpMethods.post(URL, request)
         return response
 
-    @classmethod
-    def delete_counterparty_address(cls, counterparty_ref):
+    def delete_counterparty_address(self, counterparty_ref):
         properties = {
             "Ref": counterparty_ref
         }
         request = Address.create_body_request(API_KEY, 'Address', 'searchSettlements', properties)
         request['apiKey'] = API_KEY
-        response = HttpMethods.post(URL, request)
+        response = HttpMethods.delete(URL, request)
         return response

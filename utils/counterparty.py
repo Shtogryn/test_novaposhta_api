@@ -1,6 +1,7 @@
 import os
-from dotenv import load_dotenv
+from functools import reduce
 
+from dotenv import load_dotenv
 from utils.http_methods import HttpMethods
 
 load_dotenv()
@@ -82,8 +83,3 @@ class Counterparty:
         req = Counterparty.create_body_request(API_KEY, 'Counterparty', 'getCounterparties', properties)
         response = HttpMethods.post(URL, req)
         return response
-
-
-if __name__ == '__main__':
-    res = Counterparty.delete_counter_party('ea712f78-a16d-11ed-a60f-48df37b921db')
-    print(res.json())
