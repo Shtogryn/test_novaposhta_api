@@ -83,11 +83,3 @@ class Counterparty:
         req = Counterparty.create_body_request(API_KEY, 'Counterparty', 'getCounterparties', properties)
         response = HttpMethods.post(URL, req)
         return response
-
-
-if __name__ == '__main__':
-    arr: list = [1, 2, 3, 4, 5, 6]
-    sum_arr: int = reduce(lambda x, y: x + y, arr)
-    print(sum(arr))
-    # res = Counterparty.delete_counter_party('ea712f78-a16d-11ed-a60f-48df37b921db')
-    # print(res.json())
