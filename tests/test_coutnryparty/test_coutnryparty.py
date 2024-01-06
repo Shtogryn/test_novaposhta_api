@@ -3,15 +3,13 @@ import pytest
 from utils.counterparty import Counterparty
 
 
-@pytest.mark.counterparty
-@pytest.mark.skip
 class TestCounterparty:
-    @pytest.mark.parametrize('ref', [
-        'ea712f78-a16d-11ed-a60f-48df37b921db'
-    ])
-    def test_get_street(self, ref):
+    @pytest.mark.counterparty
+    @pytest.mark.positive
+    def test_save_counter_party(self):
         """
         Test
         """
-        response_post = Counterparty.delete_counter_party(ref)
+        response_post = Counterparty.save_counter_party("Іван", "Іванович", "Іванов", "380997979789", "test@i.com",
+                                                        "PrivatePerson", "Recipient")
         assert response_post.json()['success'] is True
