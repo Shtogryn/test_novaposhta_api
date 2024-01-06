@@ -1,6 +1,7 @@
 import os
-from dotenv import load_dotenv
+from functools import reduce
 
+from dotenv import load_dotenv
 from utils.http_methods import HttpMethods
 
 load_dotenv()
@@ -85,5 +86,8 @@ class Counterparty:
 
 
 if __name__ == '__main__':
-    res = Counterparty.delete_counter_party('ea712f78-a16d-11ed-a60f-48df37b921db')
-    print(res.json())
+    arr: list = [1, 2, 3, 4, 5, 6]
+    sum_arr: int = reduce(lambda x, y: x + y, arr)
+    print(sum(arr))
+    # res = Counterparty.delete_counter_party('ea712f78-a16d-11ed-a60f-48df37b921db')
+    # print(res.json())

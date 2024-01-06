@@ -18,7 +18,8 @@ class TestAddress:
         """
         Positive test online settlements searching
         """
-        response_post = Address.search_settlements(city_name, limit, page)
+        address = Address()
+        response_post = address.search_settlements(city_name, limit, page)
         assert response_post.json()['success'] is True
         assert response_post.json()['data'][0]['Addresses'][0]['MainDescription'] == city_name
         res_list = response_post.json()['data'][0]['Addresses']
@@ -38,7 +39,8 @@ class TestAddress:
         """
         Negative test online settlements searching
         """
-        response_post = Address.search_settlements(city_name, limit, page)
+        address = Address()
+        response_post = address.search_settlements(city_name, limit, page)
         if limit > 0 and page > 0:
             assert response_post.json()['success'] is False
             assert response_post.json()['errors'][0] == 'CityName has invalid characters'
@@ -59,7 +61,8 @@ class TestAddress:
         """
         Test get cities information
         """
-        response_post = Address.get_cities(ref, find_by_string, limit)
+        address = Address()
+        response_post = address.get_cities(ref, find_by_string, limit)
         assert response_post.json()['success'] is True
         assert response_post.json()['data'][0]['Description'] == find_by_string
 
@@ -71,7 +74,8 @@ class TestAddress:
         """
         Test get streets information
         """
-        response_post = Address.get_cities(ref, find_by_string, limit)
+        address = Address()
+        response_post = address.get_cities(ref, find_by_string, limit)
         assert response_post.json()['success'] is True
         assert response_post.json()['data'][0]['Description'] == find_by_string
 
@@ -80,8 +84,5 @@ class TestAddress:
         """
         Test online settlements searching
         """
-        response = HttpMethods.delete(api_url, {"apiKey": "7c2f707c25bfe0147cdf6c2330e494bd",
-                                                "modelName": "InternetDocument",
-                                                "calledMethod": "delete",
-                                                "methodProperties": {"DocumentRefs": [item_to_delete]}})
-        assert response.json()["success"] is True
+        res = Address.delete_counterparty_address()
+        assert res
